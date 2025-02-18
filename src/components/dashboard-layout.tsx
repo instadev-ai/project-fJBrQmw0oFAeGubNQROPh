@@ -24,7 +24,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             <div className="flex items-center gap-2">
               <Sparkles className="h-6 w-6 text-purple-500" />
               <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
-                SaaSBoard
+                SaasBoard
               </span>
             </div>
           </div>
