@@ -9,15 +9,14 @@ import {
   Users,
   Sparkles,
 } from "lucide-react"
-import { useState } from "react"
 
 interface DashboardLayoutProps {
   children: React.ReactNode
+  currentPage: string
+  setCurrentPage: (page: string) => void
 }
 
-export default function DashboardLayout({ children }: DashboardLayoutProps) {
-  const [currentPage, setCurrentPage] = useState("overview")
-
+export default function DashboardLayout({ children, currentPage, setCurrentPage }: DashboardLayoutProps) {
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       {/* Sidebar */}
