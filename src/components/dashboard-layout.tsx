@@ -9,12 +9,15 @@ import {
   Users,
   Sparkles,
 } from "lucide-react"
+import { useState } from "react"
 
 interface DashboardLayoutProps {
   children: React.ReactNode
 }
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
+  const [currentPage, setCurrentPage] = useState("overview")
+
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       {/* Sidebar */}
@@ -35,21 +38,33 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
               </div>
               <Button
                 variant="ghost"
-                className="w-full justify-start gap-2 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:bg-purple-500/20 dark:hover:text-purple-400"
+                className={cn(
+                  "w-full justify-start gap-2 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:bg-purple-500/20 dark:hover:text-purple-400",
+                  currentPage === "overview" && "bg-purple-500/10 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400"
+                )}
+                onClick={() => setCurrentPage("overview")}
               >
                 <LayoutDashboard className="h-4 w-4" />
                 Overview
               </Button>
               <Button
                 variant="ghost"
-                className="w-full justify-start gap-2 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:bg-purple-500/20 dark:hover:text-purple-400"
+                className={cn(
+                  "w-full justify-start gap-2 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:bg-purple-500/20 dark:hover:text-purple-400",
+                  currentPage === "customers" && "bg-purple-500/10 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400"
+                )}
+                onClick={() => setCurrentPage("customers")}
               >
                 <Users className="h-4 w-4" />
                 Customers
               </Button>
               <Button
                 variant="ghost"
-                className="w-full justify-start gap-2 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:bg-purple-500/20 dark:hover:text-purple-400"
+                className={cn(
+                  "w-full justify-start gap-2 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:bg-purple-500/20 dark:hover:text-purple-400",
+                  currentPage === "analytics" && "bg-purple-500/10 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400"
+                )}
+                onClick={() => setCurrentPage("analytics")}
               >
                 <BarChart3 className="h-4 w-4" />
                 Analytics
@@ -59,7 +74,11 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
               </div>
               <Button
                 variant="ghost"
-                className="w-full justify-start gap-2 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:bg-purple-500/20 dark:hover:text-purple-400"
+                className={cn(
+                  "w-full justify-start gap-2 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:bg-purple-500/20 dark:hover:text-purple-400",
+                  currentPage === "settings" && "bg-purple-500/10 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400"
+                )}
+                onClick={() => setCurrentPage("settings")}
               >
                 <Settings className="h-4 w-4" />
                 Preferences
