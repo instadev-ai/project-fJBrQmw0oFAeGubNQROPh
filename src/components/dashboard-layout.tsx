@@ -7,6 +7,7 @@ import {
   LayoutDashboard,
   Settings,
   Users,
+  Sparkles,
 } from "lucide-react"
 
 interface DashboardLayoutProps {
@@ -15,46 +16,57 @@ interface DashboardLayoutProps {
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       {/* Sidebar */}
-      <div className="hidden border-r bg-gray-100/40 dark:bg-gray-800/40 md:block md:w-64">
+      <div className="hidden border-r border-r-gray-200/30 bg-white/80 backdrop-blur-xl dark:bg-gray-900/80 dark:border-r-gray-700/30 md:block md:w-72">
         <div className="flex h-full flex-col">
-          <div className="flex h-14 items-center border-b px-4">
-            <span className="font-semibold">Dashboard</span>
+          <div className="flex h-16 items-center border-b border-b-gray-200/30 px-6 dark:border-b-gray-700/30">
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-6 w-6 text-purple-500" />
+              <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-blue-500">
+                SaaSBoard
+              </span>
+            </div>
           </div>
-          <ScrollArea className="flex-1">
-            <nav className="flex flex-col gap-2 p-4">
+          <ScrollArea className="flex-1 px-4">
+            <nav className="flex flex-col gap-2 py-4">
+              <div className="px-4 py-2">
+                <h2 className="text-xs font-semibold text-gray-500 dark:text-gray-400">MAIN MENU</h2>
+              </div>
               <Button
                 variant="ghost"
-                className="w-full justify-start gap-2"
+                className="w-full justify-start gap-2 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:bg-purple-500/20 dark:hover:text-purple-400"
               >
                 <LayoutDashboard className="h-4 w-4" />
                 Overview
               </Button>
               <Button
                 variant="ghost"
-                className="w-full justify-start gap-2"
+                className="w-full justify-start gap-2 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:bg-purple-500/20 dark:hover:text-purple-400"
               >
                 <Users className="h-4 w-4" />
                 Customers
               </Button>
               <Button
                 variant="ghost"
-                className="w-full justify-start gap-2"
+                className="w-full justify-start gap-2 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:bg-purple-500/20 dark:hover:text-purple-400"
               >
                 <BarChart3 className="h-4 w-4" />
                 Analytics
               </Button>
+              <div className="px-4 py-2 mt-4">
+                <h2 className="text-xs font-semibold text-gray-500 dark:text-gray-400">SETTINGS</h2>
+              </div>
               <Button
                 variant="ghost"
-                className="w-full justify-start gap-2"
+                className="w-full justify-start gap-2 hover:bg-purple-500/10 hover:text-purple-600 dark:hover:bg-purple-500/20 dark:hover:text-purple-400"
               >
                 <Settings className="h-4 w-4" />
-                Settings
+                Preferences
               </Button>
             </nav>
           </ScrollArea>
-          <div className="border-t p-4">
+          <div className="border-t border-t-gray-200/30 p-4 dark:border-t-gray-700/30">
             <ThemeToggle />
           </div>
         </div>
@@ -62,13 +74,16 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
       {/* Main Content */}
       <div className="flex-1">
-        <header className="flex h-14 items-center border-b px-4">
+        <header className="flex h-16 items-center border-b border-b-gray-200/30 bg-white/80 px-6 backdrop-blur-xl dark:bg-gray-900/80 dark:border-b-gray-700/30">
+          <div className="md:hidden">
+            <Sparkles className="h-6 w-6 text-purple-500" />
+          </div>
           <div className="flex-1" />
           <div className="flex items-center gap-4">
             <ThemeToggle />
           </div>
         </header>
-        <main className="p-4">
+        <main className="container mx-auto p-6 lg:p-8">
           {children}
         </main>
       </div>

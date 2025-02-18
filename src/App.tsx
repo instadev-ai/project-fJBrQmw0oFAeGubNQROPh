@@ -11,10 +11,12 @@ function App() {
       <ThemeProvider defaultTheme="light" storageKey="app-theme">
         <DashboardLayout>
           <div className="flex flex-col gap-8">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
+                Welcome back, Sarah!
+              </h2>
               <p className="text-muted-foreground">
-                Welcome back to your dashboard overview.
+                Here's what's happening with your projects today.
               </p>
             </div>
             <StatsCards />
